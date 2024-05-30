@@ -12,7 +12,6 @@ import android.widget.Toast;
 
 import eu.thedarken.wl.R;
 import eu.thedarken.wl.receivers.ReceiverAutostart;
-import eu.thedarken.wl.receivers.ReceiverCall;
 
 public class Options extends Dialog {
     private SharedPreferences settings;
@@ -31,7 +30,6 @@ public class Options extends Dialog {
 
         final CheckBox cbNotification = (CheckBox) findViewById(R.id.notification);
         final CheckBox cbOnboot = (CheckBox) findViewById(R.id.autostart);
-        final CheckBox cbOnCall = (CheckBox) findViewById(R.id.oncall);
 
         cbNotification.setChecked(settings.getBoolean("notifaction.enabled", true));
         cbNotification.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -58,29 +56,11 @@ public class Options extends Dialog {
                 if (checked) {
                     packageManager.setComponentEnabledSetting(autostart, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
                     Toast.makeText(getContext(), "Autostart enabled", Toast.LENGTH_SHORT).show();
-                    if (cbOnCall.isChecked()) cbOnCall.setChecked(false);
                 } else {
                     packageManager.setComponentEnabledSetting(autostart, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
                     Toast.makeText(getContext(), "Autostart disabled", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
-        final ComponentName oncall = new ComponentName(getContext(), ReceiverCall.class);
-        cbOnCall.setChecked((packageManager.getComponentEnabledSetting(oncall) == PackageManager.COMPONENT_ENABLED_STATE_ENABLED));
-        cbOnCall.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                if (checked) {
-                    packageManager.setComponentEnabledSetting(oncall, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
-                    Toast.makeText(getContext(), "OnCallLocking enabled", Toast.LENGTH_SHORT).show();
-                    if (cbOnboot.isChecked()) cbOnboot.setChecked(false);
-                } else {
-                    packageManager.setComponentEnabledSetting(oncall, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
-                    Toast.makeText(getContext(), "OnCallLocking disabled", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
     }
-
 }
