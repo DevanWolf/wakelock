@@ -10,30 +10,17 @@
         android:id="@+id/autostart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/option_autostart_title"/>
+        android:text="Autostart on boot"/>
 
     <CheckBox
         android:id="@+id/notification"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="@string/option_notification_title"/>
+        android:text="Notification"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/option_notification_desc"/>
-
-    <CheckBox
-        android:id="@+id/oncall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/option_call_title"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/option_call_desc"/>
-
+        android:text="Without notification, the system might kill the service holding the wakelock to free resources."/>
 </LinearLayout>
