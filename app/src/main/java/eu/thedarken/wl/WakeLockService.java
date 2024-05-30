@@ -10,7 +10,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
-import android.util.Log;
 
 import eu.thedarken.wl.locks.Lock;
 import eu.thedarken.wl.locks.Lock.Type;
@@ -41,7 +40,6 @@ public class WakeLockService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.d(TAG, "creating");
         settings = PreferenceManager.getDefaultSharedPreferences(this);
 
         current_lock = settings.getString("current_lock", Type.NO_LOCK.name());
@@ -85,7 +83,6 @@ public class WakeLockService extends Service {
         } else if (locktype == Type.FULL_WAKE_LOCK) {
             lock = new LockFull(this);
         }
-        Log.i(TAG, "Aquiring " + lock.getType());
 
         updateWidget(false);
     }
@@ -93,16 +90,12 @@ public class WakeLockService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.d(TAG, "destroying");
-
-        Log.i(TAG, "Releasing " + lock.getType());
         lock.release();
 
         current_lock = settings.getString("current_lock", Type.NO_LOCK.name());
         setLock(Type.valueOf(current_lock));
 
         stopForeground(true);
-        Log.d(TAG, "bye...");
         updateWidget(true);
     }
 
@@ -110,7 +103,6 @@ public class WakeLockService extends Service {
         ActivityManager manager = (ActivityManager) c.getSystemService(ACTIVITY_SERVICE);
         for (RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
             if (WakeLockService.class.getName().equals(service.service.getClassName())) {
-                Log.d(c.getClass().getCanonicalName(), "WakeLock service active");
                 return true;
             }
         }
