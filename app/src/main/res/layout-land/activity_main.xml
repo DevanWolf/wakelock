@@ -21,12 +21,12 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:background="@color/level0"
+            android:background="#8A8A8A"
             android:gravity="center"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:text="0"
-            android:textColor="@color/black"
+            android:textColor="@android:color/black"
             android:visibility="invisible"
             tools:ignore="HardcodedText"/>
 
@@ -35,12 +35,12 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:background="@color/level1"
+            android:background="#27E640"
             android:gravity="center"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:text="1"
-            android:textColor="@color/black"
+            android:textColor="@android:color/black"
             android:visibility="invisible"
             tools:ignore="HardcodedText"/>
 
@@ -49,12 +49,12 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:background="@color/level2"
+            android:background="#A0ED1A"
             android:gravity="center"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:text="2"
-            android:textColor="@color/black"
+            android:textColor="@android:color/black"
             android:visibility="invisible"
             tools:ignore="HardcodedText"/>
 
@@ -63,12 +63,12 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:background="@color/level3"
+            android:background="#D2F011"
             android:gravity="center"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:text="3"
-            android:textColor="@color/black"
+            android:textColor="@android:color/black"
             android:visibility="invisible"
             tools:ignore="HardcodedText"/>
 
@@ -77,12 +77,12 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:background="@color/level4"
+            android:background="#EBDC0E"
             android:gravity="center"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:text="4"
-            android:textColor="@color/black"
+            android:textColor="@android:color/black"
             android:visibility="invisible"
             tools:ignore="HardcodedText"/>
 
@@ -91,12 +91,12 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:background="@color/level5"
+            android:background="#EBBE0E"
             android:gravity="center"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:text="5"
-            android:textColor="@color/black"
+            android:textColor="@android:color/black"
             android:visibility="invisible"
             tools:ignore="HardcodedText"/>
 
@@ -105,12 +105,12 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:background="@color/level6"
+            android:background="#EB8110"
             android:gravity="center"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:text="6"
-            android:textColor="@color/black"
+            android:textColor="@android:color/black"
             android:visibility="invisible"
             tools:ignore="HardcodedText"/>
 
@@ -119,12 +119,12 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:background="@color/level7"
+            android:background="#EB3810"
             android:gravity="center"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:text="7"
-            android:textColor="@color/black"
+            android:textColor="@android:color/black"
             android:visibility="invisible"
             tools:ignore="HardcodedText"/>
     </LinearLayout>
@@ -153,7 +153,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="16dp"
-                tools:text="type"/>
+                tools:text=""/>
 
             <TextView
                 android:id="@+id/description"
@@ -163,23 +163,21 @@
                 android:layout_below="@+id/locktype"
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="8dp"
-                tools:text="This is a very good description, isn&apos;t it? Yes it is my friend."/>
+                tools:text=""/>
 
             <Button
                 android:id="@+id/options"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_above="@+id/about"
-                android:text="@string/title_options"/>
+                android:text="Ooptions"/>
 
             <Button
                 android:id="@+id/about"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:text="@string/about"/>
+                android:text="About"/>
         </RelativeLayout>
     </LinearLayout>
-
-
 </LinearLayout>
