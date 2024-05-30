@@ -17,42 +17,16 @@ public class About extends Dialog {
     public About(Context context) {
         super(context);
 
-        setContentView(R.layout.dialog_about);
-        String versName = "";
-        try {
-            versName = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0).versionName;
-        } catch (NameNotFoundException e) {
-            e.printStackTrace();
-        }
-        TextView version = (TextView) findViewById(R.id.version);
-        version.setText(context.getString(R.string.version_x, versName));
-
-        setTitle(R.string.app_name);
+        setTitle("Wake Lock");
         setCancelable(true);
         setCanceledOnTouchOutside(true);
 
+        setContentView(R.layout.dialog_about);
+        TextView version = (TextView) findViewById(R.id.version);
+        version.setText("Version: 2.6");
+
         TextView about = (TextView) findViewById(R.id.about);
-        about.setText(R.string.about_text);
-
-        findViewById(R.id.upgrade_hint).setVisibility(Build.VERSION.SDK_INT >= 16 ? View.VISIBLE : View.GONE);
-        Button upgrade = (Button) findViewById(R.id.upgrade);
-        upgrade.setVisibility(Build.VERSION.SDK_INT >= 16 ? View.VISIBLE : View.GONE);
-        upgrade.setOnClickListener(new android.view.View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent marketIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=eu.thedarken.wldonate"));
-                getContext().startActivity(marketIntent);
-            }
-        });
-
-        Button home = (Button) findViewById(R.id.home);
-        home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent marketIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://darken.eu"));
-                getContext().startActivity(marketIntent);
-            }
-        });
+        about.setText("This app allows you to acquire wakelocks from Android's PowerManager.");
     }
 
 }
