@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.preference.PreferenceManager;
-import android.util.Log;
 
 import eu.thedarken.wl.WakeLockService;
 import eu.thedarken.wl.locks.Lock.Type;
@@ -17,7 +16,6 @@ public class ReceiverAutostart extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.d(TAG, "Wakelock autostart called");
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context);
         if (!settings.getString("current_lock", Type.NO_LOCK.name()).equals(Type.NO_LOCK.name())) {
             ComponentName oncall = new ComponentName(context, ReceiverCall.class);
