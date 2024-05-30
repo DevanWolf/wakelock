@@ -5,7 +5,7 @@ static def gitSha() {
 }
 
 def versionRewrite = 2
-def versionRelease = 5
+def versionRelease = 6
 
 android {
     signingConfigs {
@@ -31,7 +31,7 @@ android {
 
     defaultConfig {
         minSdkVersion 7
-        targetSdkVersion 7
+        targetSdkVersion 23
 
         versionCode versionRewrite * 10000 + versionRelease
         versionName "${versionRewrite}.${versionRelease}"
@@ -52,15 +52,4 @@ android {
             }
         }
     }
-    productFlavors {
-        free {
-            applicationId "eu.thedarken.wl"
-            versionNameSuffix "-f"
-        }
-        donate {
-            applicationId "eu.thedarken.wldonate"
-            versionNameSuffix "-d"
-        }
-    }
-
 }
