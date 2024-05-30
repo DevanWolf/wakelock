@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.util.Log;
 
 import eu.thedarken.wl.BuildConfig;
 import eu.thedarken.wl.MainActivity;
@@ -18,13 +17,10 @@ public class ReceiverToggle extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.d(TAG, "Receiving toggle...");
         Intent svc = new Intent(context, WakeLockService.class);
         if (WakeLockService.isMyServiceRunning(context)) {
-            Log.d(TAG, "Service is running, stopping it...");
             context.stopService(svc);
         } else {
-            Log.d(TAG, "Service is not running, starting it...");
             SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context);
             if (!settings.getString("current_lock", Type.NO_LOCK.name()).equals(Type.NO_LOCK.name())) {
                 context.startService(svc);
